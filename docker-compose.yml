@@ -1,13 +1,14 @@
 version: '3'
 services:
   odoo:
-    build: .
+    image: odoo:17
     command: odoo -d dev --dev xml
     ports:
+    
       - "8069:8069"
     volumes:
       - odoo:/var/lib/odoo  
-      - ./addons:/mnt/extra-addons
+      - ./custom_addons:/mnt/extra-addons
     depends_on:
       - db
       
