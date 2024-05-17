@@ -1,16 +1,12 @@
 {
-    'name': 'Student Management',
+    'name': 'Student Invoice',
     'version': '1.0',
-    'summary': 'Module to manage students',
-    'description': 'A module to manage student records',
+    'summary': 'Add student field to invoices',
     'author': 'Nhlanhla Khosa',
-    'category': 'Education',
-    'depends': ['base'],
+    'depends': ['account', 'student'],
     'data': [
-        'security/security.xml',
-        'security/ir.model.access.csv',
-        'views/student_views.xml',
+        'views/student_invoice_views.xml',
     ],
     'installable': True,
-    'application': True,
+    'application': False,
 }
