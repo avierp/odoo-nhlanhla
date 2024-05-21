@@ -5,7 +5,7 @@
     'description': 'A module to manage student records',
     'author': 'Nhlanhla Khosa',
     'category': 'Education',
-    'depends': ['base'],
+    'depends': ['base','account',],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',

@@ -1,36 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="view_student_form" model="ir.ui.view">
-        <field name="name">student.form</field>
-        <field name="model">student.student</field>
-        <field name="arch" type="xml">
-            <form string="Student Form">
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="age"/>
-                        <field name="gender"/>
-                        <field name="email"/>
-                        <field name="phone"/>
-                        <field name="address"/>
-                        <field name="date_of_birth"/>
-                        <field name="active"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
     <record id="view_student_tree" model="ir.ui.view">
         <field name="name">student.tree</field>
         <field name="model">student.student</field>
         <field name="arch" type="xml">
-            <tree string="Student List">
+            <tree>
                 <field name="name"/>
-                <field name="age"/>
-                <field name="gender"/>
-                <field name="email"/>
-                <field name="phone"/>
             </tree>
+        </field>
+    </record>
+
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">student.form</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
@@ -40,7 +30,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="student_menu" name="Students" sequence="1"/>
-    <menuitem id="student_menu_management" name="Student Management" parent="student_menu" sequence="1"/>
-    <menuitem id="student_menu_students" name="Students" parent="student_menu_management" action="action_student"/>
+    <menuitem id="menu_student_root" name="Students" sequence="10"/>
+    <menuitem id="menu_student" name="Students" parent="menu_student_root" sequence="10" action="action_student"/>
 </odoo>

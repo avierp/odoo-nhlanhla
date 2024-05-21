@@ -1,5 +1,5 @@
 <odoo>
-    <data>
-        <!-- Define security groups and rules here if needed -->
+    <data noupdate="1">
+        <!-- Security groups can be defined here -->
     </data>
 </odoo>

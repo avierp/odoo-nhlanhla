@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Action to view student invoices -->
+    <record id="action_view_student_invoices" model="ir.actions.act_window">
+        <field name="name">Invoices</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('student_id', '=', active_id)]</field>
+        <field name="context">{'default_student_id': active_id}</field>
+    </record>
+
+    <!-- Inherit invoice form to add student field -->
     <record id="view_move_form_inherit_student" model="ir.ui.view">
         <field name="name">account.move.form.inherit.student</field>
         <field name="model">account.move</field>
@@ -7,6 +17,22 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="student_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend student form to add smart button -->
+    <record id="view_student_form_inherit_invoice" model="ir.ui.view">
+        <field name="name">student.student.form.inherit.invoice</field>
+        <field name="model">student.student</field>
+        <field name="inherit_id" ref="student.view_student_form"/> <!-- Ensure this ref is correct -->
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <div name="button_box" class="oe_button_box" position="inside">
+                    <button class="oe_stat_button" type="object" icon="fa-file-invoice" name="action_view_student_invoices" string="Invoices">
+                        <field name="invoice_count" widget="statinfo"/>
+                    </button>
+                </div>
             </xpath>
         </field>
     </record>
